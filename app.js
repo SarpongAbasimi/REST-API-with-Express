@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 var assert = require('assert')
 
 require('dotenv').config()
@@ -45,7 +45,6 @@ app.post('/info',urlencodedParser,(req, res)=>{
     assert.equal(null, err);
     db.collection('space').insertOne(data, function(){
     assert.equal(null, err);
-    console.log(' I make it out');
     db.close
     });
   });
