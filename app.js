@@ -3,6 +3,7 @@ var express = require('express')
  ,router = require('./controllers/index');
 
 app.use(router)
+app.use('/homes', require('./controllers/homes'));
 
 let port = process.env.PORT || 3000
 app.listen(port,()=>{
