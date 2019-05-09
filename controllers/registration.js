@@ -1,5 +1,8 @@
-const registration = (req, res)=> {
-  res.send('hey')
+exports.registration = (req, res)=> {
+  res.render('signup')
 };
 
-module.exports = registration;
+exports.registered = (req, res)=> {
+  res.redirect('/login')
+};
+

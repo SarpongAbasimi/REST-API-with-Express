@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router()
 
-router.get('/signup', (req, res)=>{
-  res.send('sign up here');
-});
+const registration = require('../controllers/registration')
+
+
+router.get('/signup', registration.registration);
+router.post('/signup', registration.registered);
 
 module.exports = router;
