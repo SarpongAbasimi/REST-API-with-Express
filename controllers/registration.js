@@ -1,5 +1,5 @@
 const registration = (req, res)=> {
-  res.send('sign up here')
+  res.send('hey')
 };
 
 module.exports = registration;
