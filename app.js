@@ -1,9 +1,11 @@
-var express = require('express')
- ,app = express()
- ,router = require('./controllers/index');
+const express = require('express')
+ ,app = express();
 
-app.use(router)
-app.use('/homes', require('./controllers/homes'));
+require('dotenv').config()
+
+app.use(require('./routes/index'))
+app.use('/homes', require('./routes/home'));
+app.use('/registration', require('./routes/registration'));
 
 let port = process.env.PORT || 3000
 app.listen(port,()=>{
