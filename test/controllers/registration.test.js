@@ -13,11 +13,20 @@ describe('GET/ signup',()=>{
 describe('POST/ signup', ()=>{
   it('allows users to fill in a form', (done)=>{
     request(app)
-    .post('/registration/signup')
+    .post('/registration/registered')
     .send({'name':'chris', 'email':'chris@demo.com',
      'password':'demo', 'confrim':'demo'})
     .expect(302)
     .expect('Location',/\/login/, done)
+  });
+});
+
+describe('GET/ login', ()=>{
+  it('gives users success message if signup is successful', (done)=>{
+    request(app)
+    .get('/registration/login')
+    .expect(200)
+    .expect(/Sign up was successful/, done)
   });
 });
 

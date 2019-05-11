@@ -1,20 +1,21 @@
 const express = require('express')
  ,app = express()
  ,path = require('path')
- ,mongoose = require('mongoose');
+ ,mongoose = require('mongoose')
+ ,bodyParser = require('body-parser');
 
-require('dotenv').config()
+require('dotenv').config();
 
-const PASS = process.env.MONGODB_URL;
-const uri =`mongodb+srv://sarpong:${PASS}@learningmongodb-aecg9.mongodb.net/test?retryWrites=true`
-
-app.use(require('./routes/index'))
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(require('./routes/index'));
 app.use('/homes', require('./routes/home'));
 app.use('/registration', require('./routes/registration'));
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname,('views')))
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname,('views')));
+
+const uri =process.env.MONGODB_URL;
 mongoose.connect(uri, { useNewUrlParser: true });
 
 let port = process.env.PORT || 3000
