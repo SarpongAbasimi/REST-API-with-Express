@@ -13,10 +13,11 @@ exports.submitRegistration = (req, res)=> {
     if(err){
       console.log(err.message)
     }
+    const { name, email } = req.body
     const user = new User({
       _id: mongoose.Types.ObjectId(),
-      name: req.body.name,
-      email: req.body.email,
+      name,
+      email,
       password: hash
     });
     user.save().then(result =>{ console.log('registration was successful')})
