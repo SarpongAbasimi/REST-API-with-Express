@@ -2,9 +2,11 @@
   "name": "Express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec --recursive"
+    "test": "./node_modules/.bin/mocha --reporter spec --recursive",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
