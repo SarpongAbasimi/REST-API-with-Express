@@ -6,7 +6,7 @@ describe('GET/ signup',()=>{
     request(app)
     .get('/registration/signup')
     .expect(200)
-    .expect(/sign up here/, done);
+    .expect(/submit/, done);
   });
 });
 

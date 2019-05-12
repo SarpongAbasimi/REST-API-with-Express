@@ -4,26 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
   <link rel="stylesheet" href="/static/styles/signup.css">
   <title>Sign up</title>
 </head>
 <body>
-  <span>sign up here</span>
-  <div>
-      <% if(locals.errors){%>
-        <%errors.forEach(eachErrorMessage=>{%>
-          <ul>
-            <li><%=eachErrorMessage.msg%></li>
-          </ul>
-        <%})%>
-      <% } %>
+  <div class='container'>
+    <div class="container signup">
+        <% if(locals.errors){%>
+          <%errors.forEach(eachErrorMessage=>{%>
+            <ul class="error-ul">
+              <li class="col-sm-12 col-md-8 col-lg-6 alert alert-warning" role="alert">
+                <%=eachErrorMessage.msg%>
+              </li>
+            </ul>
+          <%})%>
+        <% } %>
+    </div>
     <form method="POST" action="/registration/registered">
-      <input type="text" name="name" placeholder='name'  required/>
-      <input type="email" name="email" placeholder='email' required/>
-      <input type="password" name="password" placeholder='password' required>
-      <input type="password" name="confirm_password" placeholder='confirm password' required/>
-      <input type="submit"/>
+      <div class="form-group col-sm-12 col-md-8 col-lg-6" id='form-input-container'>
+          <input class='form-control mb-1' type="text" name="name" placeholder='name'  required/>
+          <input class='form-control mb-1' type="email" name="email" placeholder='email' required/>
+          <input class='form-control mb-1' type="password" name="password" placeholder='password' required>
+          <input class='form-control mb-1' type="password" name="confirm_password" placeholder='confirm password' required/>
+          <input id='submit-button' class="btn btn-block" type="submit" value='Sign Up'/>
+          <hr>
+          <span class="text-muted span-text">Already have an account? <a href="#">Login now »</a></span>
+      </div>
     </form>
   </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

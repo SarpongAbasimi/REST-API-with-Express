@@ -1,3 +1,48 @@
-body{
-    background-color: aqua;
+:root{
+--mos:'Montserrat', sans-serif;
+--open:'Open Sans', sans-serif;
+}
+
+.signup {
+  padding: 5px;
+}
+
+.error-ul{
+  text-align: center;
+  display: flex;
+}
+
+.error-ul li{
+  list-style-type: none;
+  font-family: var(--open);
+  padding-right: 20px;
+  font-size: 10px;
+  position: relative;
+  margin: 0 auto;
+  right: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+#form-input-container{
+  align-self: center;
+}
+
+input::placeholder{
+  font-family: var(--open);
+  font-size: 12px;
+}
+
+#submit-button{
+ background-color: #FF5A5F;
+ font-family: var(--mos);
+ color: #ffff;
+}
+
+.span-text{
+  font-size: 10px;
+  font-family: var(--open);
 }
