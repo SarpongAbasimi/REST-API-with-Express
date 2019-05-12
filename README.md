@@ -20,6 +20,7 @@ File Structure.
 <h4 align='center'>
 What App Can curretly Do.
 </h4>
+
 - A user can register at ``localhost:3000/registration/signup``
 
 <img width="1279" alt="Screen Shot 2019-05-12 at 13 08 25" src="https://user-images.githubusercontent.com/37377831/57581996-832b4900-74b7-11e9-9a50-0cc9c3c9d2dc.png">
