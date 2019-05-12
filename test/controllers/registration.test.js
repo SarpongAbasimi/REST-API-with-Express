@@ -25,8 +25,7 @@ describe('GET/ login', ()=>{
   it('gives users success message if signup is successful', (done)=>{
     request(app)
     .get('/registration/login')
-    .expect(200)
-    .expect(/Sign up was successful/, done)
+    .expect(200, done)
   });
 });
 

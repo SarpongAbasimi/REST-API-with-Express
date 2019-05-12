@@ -4,16 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles/login.css">
+  <title>Login</title>
 </head>
 <body>
-  <span>Sign up was successful</span>
-  <div>
+  <div class="container main-div">
     <form method="POST" action="#">
-      <input type="text" name="name" placeholder='name' required/>
-      <input type="email" name="email" placeholder='email' required/>
-      <input type="password" name="password" placeholder='password' required>
-      <input type="submit"/>
+      <div class="form-group col-sm-12 col-md-8 col-lg-6" id='form-input-container'>
+          <input class='form-control mb-1' type="text" name="name" placeholder='name' required/>
+          <input class='form-control mb-1' type="email" name="email" placeholder='email' required/>
+          <input class='form-control mb-1' type="password" name="password" placeholder='password' required>
+          <input class="btn btn-block" id='submit-button' type="submit" value="Login"/>
+          <hr>
+          <span class="text-muted span-text">Need an account? <a href="/registration/signup">Sign up now »</a></span>
+      </div>
     </form>
   </div>
 </body>
