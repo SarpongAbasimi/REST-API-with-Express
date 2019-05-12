@@ -26,6 +26,7 @@ form {
   display: flex;
   justify-content: center;
   padding: 20px;
+  height: 70vh;
 }
 #form-input-container{
   align-self: center;
