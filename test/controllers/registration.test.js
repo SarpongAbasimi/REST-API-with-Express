@@ -15,7 +15,7 @@ describe('POST/ signup', ()=>{
     request(app)
     .post('/registration/registered')
     .send({'name':'chris', 'email':'chris@demo.com',
-     'password':'demo', 'confrim':'demo'})
+     'password':'demo', 'confrim_password':'demo'})
     .expect(302)
     .expect('Location',/\/login/, done)
   });

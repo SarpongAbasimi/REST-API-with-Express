@@ -7,7 +7,6 @@ exports.registration = (req, res)=> {
   res.render('signup')
 };
 
-
 exports.submitRegistration = (req, res)=> {
   req.check('email','The email you entered is invalid').isEmail();
   req.check('password','Password must be at least 6 characters long').isLength({ min: 3});
@@ -29,6 +28,6 @@ exports.submitRegistration = (req, res)=> {
 };
 
 exports.login = (req, res)=>{
-  res.send('hey')
+  res.render('login')
 }
 
