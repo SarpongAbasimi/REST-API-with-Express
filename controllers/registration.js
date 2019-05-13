@@ -9,7 +9,7 @@ exports.registration = (req, res)=> {
 
 exports.submitRegistration = (req, res)=> {
   req.check('email','The email you entered is invalid').isEmail();
-  req.check('password','Password must be at least 6 characters long').isLength({ min: 3});
+  req.check('password','Password must be at least 6 characters long').isLength({ min: 6});
   req.check('password','Password must be equal to your confirmation password').equals(req.body.confirm_password);
 
   const errors = req.validationErrors();
