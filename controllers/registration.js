@@ -5,6 +5,8 @@ const User = require('../model/User')
 
 exports.registration = (req, res)=> {
   const errors = req.session.errors
+  const duplicateEmail = req.session.duplicateEmail
+  console.log(duplicateEmail )
   res.render('signup',{errors:errors})
 };
 
@@ -19,6 +21,12 @@ exports.submitRegistration = (req, res)=> {
     res.redirect('/registration/signup')
   }else{
     const {email, name, password} = req.body
+    User.findOne({email}, (err,emailFound)=>{
+      if(err){
+        req.session.duplicateEmail = ['Sorry, that email is already taken']
+        res.redirect('/registration/signup')
+      }
+    });
     Bcrypt.hash(password, 10,(err, hash)=>{
       if(err){ console.log('There was an error')}
       const user = new User({_id: mongoose.Types.ObjectId(), name, email, password: hash});
