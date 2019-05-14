@@ -22,14 +22,26 @@ File Structure.
 What App Can curretly Do.
 </h4>
 
-- A user can register at ``localhost:3000/registration/signup``
+- A user can register at ``localhost:3000/registration/signup``.
+
+- When there is an error during registration, the app is able to tell the user the errors.
+
+> This is possible because of express validators.
 
 <img width="1279" alt="Screen Shot 2019-05-12 at 13 08 25" src="https://user-images.githubusercontent.com/37377831/57581996-832b4900-74b7-11e9-9a50-0cc9c3c9d2dc.png">
 
-- Allows user to sign in.
-- Hash users password.
-- Stores users information into database.
-- Interactive during registration.
+- The application tells ``users`` when their registration email is ``taken``.
+
+<img width="1275" alt="Screen Shot 2019-05-14 at 22 04 26" src="https://user-images.githubusercontent.com/37377831/57732143-4e281d80-7694-11e9-9c45-012b4fc2c6df.png">
+
+
+<h4 align='center'>
+To Do
+</h4>
+
+- Add the ability for users to log in. 
+
+> This is will done using (Passport.js)[http://www.passportjs.org]
 
 <h5 align='center>
 Tech Stack.
