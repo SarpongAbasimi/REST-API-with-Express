@@ -15,13 +15,15 @@ exports.submitRegistration = (req, res)=> {
   const errors = req.validationErrors();    
   const {email, name, password} = req.body;
 
+  let holder =[]
+  for(let i = 0; i < errors.length; i++){holder.push((errors[i].msg))}
   User.findOne({email}, (err,emailFound)=>{
     if(err){console.log('There was an error')}
     if(emailFound && errors){
-      req.session.errors = [errors[0].msg,'Email is already taken'];
+      req.session.errors = [...holder,'Email is already taken'];
       res.redirect('/registration/signup');
     }else if(!emailFound && errors){
-      req.session.errors = [errors[0].msg];
+      req.session.errors = [...holder];
       res.redirect('/registration/signup');
     }else{
       Bcrypt.hash(password, 10,(err, hash)=>{
