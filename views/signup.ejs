@@ -15,7 +15,7 @@
         <% if(locals.errors){%>
           <%errors.forEach(eachErrorMessage=>{%>
             <ul class="error-ul">
-              <li class="col-sm-12 col-md-8 col-lg-6 alert alert-warning" role="alert">
+              <li class="col-sm-12 col-md-8 col-lg-6 alert alert-danger" role="alert">
                 <%=eachErrorMessage.msg%>
               </li>
             </ul>

@@ -4,7 +4,8 @@ const User = require('../model/User')
 
 
 exports.registration = (req, res)=> {
-  res.render('signup')
+  const errors = req.session.errors
+  res.render('signup',{errors:errors})
 };
 
 exports.submitRegistration = (req, res)=> {
@@ -14,7 +15,8 @@ exports.submitRegistration = (req, res)=> {
 
   const errors = req.validationErrors();
   if(errors){
-    res.render('signup', {errors:errors})
+    req.session.errors = errors
+    res.redirect('/registration/signup')
   }else{
     const {email, name, password} = req.body
     Bcrypt.hash(password, 10,(err, hash)=>{
