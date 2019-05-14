@@ -41,7 +41,7 @@ To Do
 
 - Add the ability for users to log in. 
 
-> This is will done using Passport.js
+> This will be done using Passport.js
 
 <h5 align='center>
 Tech Stack.
