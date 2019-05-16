@@ -17,9 +17,10 @@ describe('POST/ signup', ()=>{
     .send({'name':'chris', 'email':'chris@demo.com',
      'password':'demo', 'confrim_password':'demo'})
     .expect(302)
-    .expect('Location',/\/login/, done)
+    .expect('Location',/\/registration\/signup/, done);
   });
 });
+
 
 describe('GET/ login', ()=>{
   it('gives users success message if signup is successful', (done)=>{
