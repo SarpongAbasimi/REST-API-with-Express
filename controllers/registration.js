@@ -21,7 +21,7 @@ const hashUserPassword = ({name, email, password})=>{
     }else{
       const user = new User({_id: mongoose.Types.ObjectId(), name, email, password: hash});
       user.save().then(result =>{ console.log('registration was successful')})
-      .catch(err=> console.log('There was an error'));
+      .catch(err=> console.log(err));
     }
   });
 };
@@ -33,8 +33,7 @@ exports.submitRegistration = (req, res)=> {
 
   let holder =[]
   for(let i = 0; i < errors.length; i++){holder.push((errors[i].msg))}
-
-  User.findOne({email}, (err,emailFound)=>{
+  User.findOne({ email }, (err,emailFound)=>{
     if(err){console.log(err)}
     if(emailFound && errors){
       req.session.errors = [...holder,'Email is already taken'];
