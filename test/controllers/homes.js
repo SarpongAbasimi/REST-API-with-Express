@@ -6,6 +6,6 @@ describe('GET/homes', ()=>{
     request(app)
     .get('/homes')
     .expect(200)
-    .expect('Welcome to the home page', done);
+    .expect(/Welcome to the home page/, done);
   });
 });

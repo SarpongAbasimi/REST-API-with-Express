@@ -55,7 +55,7 @@ exports.login = (req, res)=> {
 
 exports.postLogin = (req, res, next)=> {
   passport.authenticate('local',{
-    successRedirect: '/dashbord',
+    successRedirect: '/homes',
     failureRedirect: '/registration/login'
   })(req, res, next);
 };

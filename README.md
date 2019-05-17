@@ -38,7 +38,7 @@ What App Can Curretly Do.
 Update
 </h4>
 
-> 17th May 2019 (Used passportjs Local strategy to handle user Login).
+> 17th May 2019 ( Used passportjs Local strategy to handle user Login ).
 
 - ``npm install passport-local``.
 - Inside app.js ``passport = require('passport')``.
@@ -122,7 +122,8 @@ exports.postLogin = (req, res, next)=> {
   })(req, res, next);
 };
 ```
-- To find out if ``login`` worked you can ``console.log`` the user being returned.
+- Note
+- To find out if ``login`` worked, you can ``console.log`` the user being returned.
 - This is what I get.
 
 <img width="1279" alt="Screen Shot 2019-05-17 at 16 50 39" src="https://user-images.githubusercontent.com/37377831/57941547-279df880-78c7-11e9-9ea6-335a278fbbe9.png">
