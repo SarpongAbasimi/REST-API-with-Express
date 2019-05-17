@@ -43,13 +43,13 @@ Update
 - ``npm install passport-local``.
 - Inside app.js ``passport = require('passport')``.
 - Add  this ``app.use(passport.initialize())`` & ``app.use(passport.session())``.
-> You will need to require('./config/passportSetup')(passport) if you setup passport in a config folder.
+- You will need to ``require('./config/passportSetup')(passport)`` if you setup passport in a config folder.
 
 ```
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
-[passport.use(new LocalStrategy](#)(
+ passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function (err, user) {
       if (err) { return done(err); }
@@ -65,7 +65,67 @@ var passport = require('passport')
 ));
 
 ```
+- Running the code at the point will cause this error ``Error: failed to serialize user into session``.
+- To avoid the error make sure to add this code.
 
+```
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+ passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+  
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
+    });
+  });
+));
+
+```
+
+- what does ``passport.serializeUser`` and ``passport.deserializeUser`` actually do ?
+
+```
+serializeUser determines which data of the user object should be stored in the session.
+The result of the serializeUser method is attached to the session as req.session.passport.user = {}.
+
+deserializeUser corresponds to the key of the user object that was given to the done function.
+So that the whole object is retrieved with help of that key.
+In my application the key is the user id.
+```
+
+- When a user tries to login in to the application, the user submits a post request to ``\registration\login``.
+- We need to allow ``passportjs`` to handle this process.
+- To do this add this to the ``post route``.
+
+```
+exports.postLogin = (req, res, next)=> {
+  passport.authenticate('local',{
+    successRedirect: '/dashbord',
+    failureRedirect: '/registration/login'
+  })(req, res, next);
+};
+```
+- To find out if ``login`` worked you can ``console.log`` the user being returned.
+- This is what I get.
+
+<img width="1279" alt="Screen Shot 2019-05-17 at 16 50 39" src="https://user-images.githubusercontent.com/37377831/57941547-279df880-78c7-11e9-9ea6-335a278fbbe9.png">
 
 
 <h4 align='center'>
