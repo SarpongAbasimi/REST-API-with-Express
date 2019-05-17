@@ -7,5 +7,6 @@ const registration = require('../controllers/registration')
 router.get('/signup', registration.registration);
 router.get('/login', registration.login);
 router.post('/registered', registration.submitRegistration);
+router.post('/login', registration.postLogin)
 
 module.exports = router;

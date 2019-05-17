@@ -1,6 +1,7 @@
 const User = require('../model/User')
 ,mongoose = require('mongoose')
-,Bcrypt = require('bcryptjs');
+,Bcrypt = require('bcryptjs')
+,passport = require('passport');
 
 exports.registration = (req, res)=> {
   const errors = req.session.errors
@@ -48,7 +49,13 @@ exports.submitRegistration = (req, res)=> {
   });
 };
 
-exports.login = (req, res)=>{
+exports.login = (req, res)=> {
   res.render('login')
-}
+};
 
+exports.postLogin = (req, res, next)=> {
+  passport.authenticate('local',{
+    successRedirect: '/dashbord',
+    failureRedirect: '/registration/login'
+  })(req, res, next);
+};
