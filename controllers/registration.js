@@ -59,3 +59,8 @@ exports.postLogin = (req, res, next)=> {
     failureRedirect: '/registration/login'
   })(req, res, next);
 };
+
+exports.logout = (req, res)=>{
+  req.logout();
+  res.redirect('/registration/login');
+}
