@@ -128,6 +128,9 @@ exports.postLogin = (req, res, next)=> {
 
 <img width="1279" alt="Screen Shot 2019-05-17 at 16 50 39" src="https://user-images.githubusercontent.com/37377831/57941547-279df880-78c7-11e9-9ea6-335a278fbbe9.png">
 
+> 22nd May 2019 ( Used passportjs Local strategy to handle user access restriction ).
+
+- Added the ability to not allow users to access certain endpoints if not logged in.
 
 <h4 align='center'>
 To Do
@@ -136,7 +139,7 @@ To Do
 - Add the ability for users to log in.(Done)
 - Render ``error`` messages using flash if error occurs during login.
 - Make the ability for a user to ``log out``.
-- Restrict users form goind to certain endpoints of the app if they have not logged in.
+- Restrict users form goind to certain endpoints of the app if they have not logged in.(Done)
 
 > This will be done using Passport.js
 
