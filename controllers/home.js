@@ -1,8 +1,11 @@
-const home = (req, res)=>{
+exports.home = (req, res)=>{
   res.render('home')
 }
 
+exports.dashbord = (req, res)=>{
+  res.render('dashbord')
+}
 
-module.exports = home;
+
 
 
