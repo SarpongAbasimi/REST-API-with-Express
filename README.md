@@ -45,7 +45,8 @@ Update
 - Add  this ``app.use(passport.initialize())`` & ``app.use(passport.session())``.
 - You will need to ``require('./config/passportSetup')(passport)`` if you setup passport in a config folder.
 
-```
+```javascript
+
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -68,7 +69,8 @@ var passport = require('passport')
 - Running the code at the point will cause this error ``Error: failed to serialize user into session``.
 - To avoid the error make sure to add this code.
 
-```
+```javascript
+
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 
@@ -114,7 +116,8 @@ In my application the key is the user id.
 - We need to allow ``passportjs`` to handle this process.
 - To do this add this to the ``post route``.
 
-```
+```javascript
+
 exports.postLogin = (req, res, next)=> {
   passport.authenticate('local',{
     successRedirect: '/dashbord',
